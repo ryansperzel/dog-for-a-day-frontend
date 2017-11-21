@@ -1,4 +1,4 @@
-const key = 'c5cd6b187247f607f63e03795fa24e20'
+const key = ''
 const proxyurl = 'https://cors-anywhere.herokuapp.com/'
 
 
