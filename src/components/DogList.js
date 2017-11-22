@@ -7,7 +7,7 @@ export default class DogList extends Component {
 
   render() {
     if (this.props.dogs.length > 0) {
-      let mappedDogs = this.props.dogs[0].pet.map(dog => (<DogCard key={cuid()} dog={dog} />))
+      let mappedDogs = this.props.dogs[0].pet.map(dog => (<DogCard setSelectedDog={this.props.setSelectedDog} key={cuid()} dog={dog} />))
       console.log(mappedDogs, this.props.dogs)
       return(
         <div>

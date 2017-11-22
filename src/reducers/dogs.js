@@ -1,4 +1,4 @@
-export function dogsReducer(state = {dogs: []}, action) {
+export function dogsReducer(state = {dogs: [], selectedDog: null}, action) {
   switch(action.type) {
 
 
@@ -6,8 +6,13 @@ export function dogsReducer(state = {dogs: []}, action) {
       return {...state, dogs: [...state.dogs, action.payload]}
 
     case "LOADING":
-      console.log("I'm rolling over")
+      console.log("Loading")
       return {...state}
+
+    case "SELECT_DOG":
+      console.log("selecting dog")
+      console.log(action)
+      return {...state, selectedDog: action.payload}
 
     default:
       return {...state}

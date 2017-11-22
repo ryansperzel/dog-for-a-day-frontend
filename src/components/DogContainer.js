@@ -1,26 +1,46 @@
 import React, { Component } from 'react'
 import { fetchDogs } from '../actions/fetchDogs'
+import { setSelectedDog } from '../actions/dogs'
+import Home from './Home'
 import { connect } from 'react-redux'
 import DogList from './DogList'
+import DogShow from './DogShow'
 // import { bindActionCreators } from 'redux'
 
 export class DogContainer extends Component {
+
+  state = {
+    selectedDog: false
+  }
 
 
   componentDidMount() {
     this.props.fetchDogs()
   }
 
+  setSelectedDog = (id) => {
+    this.setState({
+      selectedDog: id
+    })
+  }
+
   render() {
     return (
-      <DogList dogs={this.props.dogs}/>
+      <div>
+        {this.state.selectedDog === false ?
+          <DogList setSelectedDog={this.setSelectedDog} dogs={this.props.dogs}/>
+          :
+          <Home />
+        }
+      </div>
+
     );
   }
 
 }
 
 function mapDispatchToProps(dispatch){
-  return {fetchDogs: () => dispatch(fetchDogs())}
+  return {fetchDogs: () => dispatch(fetchDogs()), setSelectedDog: (id) => dispatch(setSelectedDog(id))}
 }
 
 function mapStateToProps(state){

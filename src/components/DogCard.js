@@ -10,7 +10,8 @@ export default class DogList extends Component {
 
   handleClick = (event) => {
     event.preventDefault()
-    console.log(event.target.parentNode)
+    console.log(event.target.parentNode, this.props.dog.id.$t)
+    this.props.setSelectedDog(this.props.dog.id.$t)
   }
 
   render() {
