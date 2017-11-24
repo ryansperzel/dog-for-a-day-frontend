@@ -5,6 +5,7 @@ import Home from './Home'
 import { connect } from 'react-redux'
 import DogList from './DogList'
 import DogShow from './DogShow'
+import GoogleApiWrapper from './MapContainer'
 // import { bindActionCreators } from 'redux'
 
 export class DogContainer extends Component {
@@ -30,7 +31,7 @@ export class DogContainer extends Component {
         {this.state.selectedDog === false ?
           <DogList setSelectedDog={this.setSelectedDog} dogs={this.props.dogs}/>
           :
-          <Home />
+          <GoogleApiWrapper />
         }
       </div>
 
