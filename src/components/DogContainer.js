@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { fetchDogs } from '../actions/fetchDogs'
-import { setSelectedDog } from '../actions/dogs'
+import { Redirect } from 'react-router'
+import { fetchShelters } from '../actions/shelters'
+import { fetchDogs, setSelectedDog } from '../actions/dogs'
 import Home from './Home'
 import { connect } from 'react-redux'
 import DogList from './DogList'
@@ -16,23 +17,15 @@ export class DogContainer extends Component {
 
 
   componentDidMount() {
-    this.props.fetchDogs()
+    this.props.fetchShelters(this.props.location)
+    this.props.fetchDogs(this.props.location)
   }
 
-  setSelectedDog = (id) => {
-    this.setState({
-      selectedDog: id
-    })
-  }
 
   render() {
     return (
       <div>
-        {this.state.selectedDog === false ?
-          <DogList setSelectedDog={this.setSelectedDog} dogs={this.props.dogs}/>
-          :
-          <GoogleApiWrapper />
-        }
+        <DogList setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
       </div>
 
     );
@@ -41,11 +34,11 @@ export class DogContainer extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return {fetchDogs: () => dispatch(fetchDogs()), setSelectedDog: (id) => dispatch(setSelectedDog(id))}
+  return {fetchShelters: (location) => dispatch(fetchShelters(location)), fetchDogs: (location) => dispatch(fetchDogs(location)), setSelectedDog: (id) => dispatch(setSelectedDog(id))}
 }
 
 function mapStateToProps(state){
-  return {dogs: state.dogs}
+  return {dogs: state.dogs, location: state.location, selectedDog: state.selectedDog}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DogContainer)

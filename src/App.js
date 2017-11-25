@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import Home from './components/Home'
 import DogContainer from './components/DogContainer'
+import DogShow from './components/DogShow'
+import { connect } from 'react-redux'
 
-class App extends Component {
+export default class App extends Component {
 
 
   render() {
@@ -15,5 +17,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

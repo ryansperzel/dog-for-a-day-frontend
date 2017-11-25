@@ -1,4 +1,4 @@
-export function dogsReducer(state = {dogs: [], selectedDog: null}, action) {
+export function dogsReducer(state = {dogs: [], shelters: [], selectedDog: null, location: null}, action) {
   switch(action.type) {
 
 
@@ -11,8 +11,15 @@ export function dogsReducer(state = {dogs: [], selectedDog: null}, action) {
 
     case "SELECT_DOG":
       console.log("selecting dog")
-      console.log(action)
       return {...state, selectedDog: action.payload}
+
+    case "SET_LOCATION":
+      console.log("setting location")
+      return {...state, location: action.payload, selectedDog: null}
+
+    case "ADD_SHELTER":
+      return {...state, shelters: [...state.shelters, action.payload]}
+
 
     default:
       return {...state}

@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
+import { setLocation } from '../actions/dogs'
 
 
-export default class Home extends Component {
+export class Home extends Component {
   state = {
-    location: ""
+    location: "",
+    submitted: false
   }
 
 
@@ -13,21 +17,30 @@ export default class Home extends Component {
     })
   }
 
+
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log("Why hello there")
-
+    this.props.setLocation(event.target[0].value)
+    this.setState({submitted: true})
   }
 
 
   render() {
     return (
       <div className="big-search-form">
+        {this.state.submitted === true ? <Redirect to="/dogs"/> : null}
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} type="text" value={this.state.location}/>
+          <input onChange={this.handleChange} placeholder="City, State" type="text" value={this.state.location}/>
           <input type="submit" />
         </form>
       </div>
     );
   }
 }
+
+
+function mapDispatchToProps(dispatch){
+  return {setLocation: (location) => dispatch(setLocation(location))}
+}
+
+export default connect(null, mapDispatchToProps)(Home)
