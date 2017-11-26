@@ -38,7 +38,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return {dogs: state.dogs, location: state.location, selectedDog: state.selectedDog}
+  return {dogs: state.dogs.allDogs, location: state.shelters.location, selectedDog: state.dogs.selectedDog}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DogContainer)

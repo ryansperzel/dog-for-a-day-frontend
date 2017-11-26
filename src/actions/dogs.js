@@ -1,4 +1,5 @@
 import { petKey } from '../keys/keys.js'
+import { geocoder } from '../keys/keys'
 const proxyurl = 'https://cors-anywhere.herokuapp.com/'
 
 
@@ -45,5 +46,16 @@ export function fetchDogs(location) {
     return {
       type: "SET_LOCATION",
       payload: location
+    }
+  }
+
+  export function setLatLong(location) {
+    return (dispatch) => {
+      return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${geocoder}`)
+        .then(response => response.json())
+        .then(json => dispatch({
+          type: "SET_LAT_LONG",
+          payload: json.results[0].geometry.location
+        }))
     }
   }

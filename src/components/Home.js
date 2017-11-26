@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
-import { setLocation } from '../actions/dogs'
+import { setLocation, setLatLong } from '../actions/dogs'
 
 
 export class Home extends Component {
@@ -9,6 +9,11 @@ export class Home extends Component {
     location: "",
     submitted: false
   }
+
+  componentWillUnmount() {
+
+  }
+
 
 
   handleChange = (event) => {
@@ -21,6 +26,7 @@ export class Home extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.setLocation(event.target[0].value)
+    this.props.setLatLong(event.target[0].value)
     this.setState({submitted: true})
   }
 
@@ -40,7 +46,9 @@ export class Home extends Component {
 
 
 function mapDispatchToProps(dispatch){
-  return {setLocation: (location) => dispatch(setLocation(location))}
+  return {setLocation: (location) => dispatch(setLocation(location)), setLatLong: (location) => dispatch(setLatLong(location))}
 }
+
+
 
 export default connect(null, mapDispatchToProps)(Home)
