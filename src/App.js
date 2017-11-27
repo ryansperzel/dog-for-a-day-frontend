@@ -14,8 +14,13 @@ export default class App extends Component {
       <div className="App">
         <Route exact path="/" render={props => <Home {...props} />} />
         <Route exact path="/dogs" render={props => <DogContainer {...props} />} />
+        <Route path="/dogs/:dogId" render={props => <DogShow {...props} />} />
         <Route exact path="/map" render={props => <MapContainer {...props} />} />
       </div>
     );
   }
+}
+
+function mapStateToProps(state) {
+  return {selectedDog: state.dogs.selectedDog}
 }
