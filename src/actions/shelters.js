@@ -19,7 +19,6 @@ export function fetchShelters(location) {
 // Saves fetch result dogs to the database
 
 function seedShelters(shelters) {
-  console.log(shelters)
   return fetch("http://localhost:3000/api/v1/shelters", {
     headers:{
       'Accept': 'application/json',
