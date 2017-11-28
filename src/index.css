@@ -5,8 +5,8 @@ body {
 }
 
 .textWithBlurredBg{
-    width:400px;
-    height:400px;
+    width:250px;
+    height:250px;
     display:inline-block;
     position:relative;
     transition:.3s;
@@ -43,4 +43,9 @@ body {
 
   .textWithBlurredBg:hover :not(img){
     opacity:1;
+  }
+
+
+  .modal-body {
+    text-align: center;
   }

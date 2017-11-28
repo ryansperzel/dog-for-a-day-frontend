@@ -1,4 +1,4 @@
-export function dogsReducer(state = {allDogs: [], selectedDog: null}, action) {
+export function dogsReducer(state = {allDogs: [], selectedDog: null, disabledDates: []}, action) {
   switch(action.type) {
 
 
@@ -10,8 +10,11 @@ export function dogsReducer(state = {allDogs: [], selectedDog: null}, action) {
       return {...state}
 
     case "SELECT_DOG":
-      console.log("selecting dog")
+    console.log("Setting dog")
       return {...state, selectedDog: action.payload}
+
+    case "SET_DISABLED_DATES":
+      return {...state, disabledDates: action.payload}
 
 
 

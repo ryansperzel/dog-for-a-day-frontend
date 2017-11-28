@@ -26,7 +26,15 @@ export class DogContainer extends Component {
   render() {
     return (
       <div>
-        <DogList setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
+        <div className="on-bottom">
+          <DogList setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
+        </div>
+        <div className="on-top">
+          {/*{this.props.latitude !== null && this.props.shelters.length !== 0 ? <GoogleApiWrapper latitude={this.props.latitude} shelters={this.props.shelters} longitude={this.props.longitude}/>
+          :
+          null}*/}
+        </div>
+
       </div>
 
     );
@@ -39,7 +47,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return {dogs: state.dogs.allDogs, location: state.shelters.location, selectedDog: state.dogs.selectedDog}
+  return {dogs: state.dogs.allDogs, shelters: state.shelters.allShelters, location: state.shelters.location, selectedDog: state.dogs.selectedDog, latitude: state.shelters.latitude, longitude: state.shelters.longitude}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DogContainer)

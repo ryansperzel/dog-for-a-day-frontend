@@ -6,7 +6,7 @@ const proxyurl = 'https://cors-anywhere.herokuapp.com/'
 export function fetchDogs(location) {
   return (dispatch) => {
     dispatch({ type: 'LOADING' })
-    return fetch(`${proxyurl}http://api.petfinder.com/pet.find?key=${petKey}&location=${location}&animal=dog&format=json`)
+    return fetch(`${proxyurl}http://api.petfinder.com/pet.find?key=${petKey}&location=${location}&animal=dog&count=50&format=json`)
       .then(response => response.json())
       .then(json => dispatch({
         type: "ADD_DOG",
@@ -37,6 +37,24 @@ export function fetchDogs(location) {
           type: "SELECT_DOG",
           payload: json
         }))
+        .then(json => {
+
+          // This is the function setDisabledDates. Was having scope issues so put in here temporarily
+
+          console.log("I'm in setDisabledDates", json)
+          let mappedDisabledDates = json.payload.appointments.map(appointment => {
+            let dayArr = appointment.day.split("-")
+            let date = new Date(parseInt(dayArr[0]), parseInt(dayArr[1]), parseInt(dayArr[2]))
+            // Next line fixes issue where month was displaying one month later than the month chosen
+            let fixedDate = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate())
+            return fixedDate
+            })
+          console.log(mappedDisabledDates)
+          return dispatch({
+            type: "SET_DISABLED_DATES",
+            payload: mappedDisabledDates
+          })
+        })
       }
     }
 
