@@ -6,6 +6,7 @@ import DogShow from './components/DogShow'
 import { connect } from 'react-redux'
 import MapContainer from './components/MapContainer'
 import HomepageLayout from './components/Landing'
+import Login from './components/Login'
 
 export default class App extends Component {
 
@@ -14,7 +15,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" render={props => <HomepageLayout {...props} />} />
-        <Route exact path="/login" render={props => <Home {...props} />} />
+        <Route exact path="/login" render={props => <Login {...props} />} />
         <Route exact path="/signup" render={props => <Home {...props} />} />
         <Route exact path="/home" render={props => <Home {...props} />} />
         <Route exact path="/dogs" render={props => <DogContainer {...props} />} />
