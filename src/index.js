@@ -11,10 +11,9 @@ import { Provider } from 'react-redux'
 import { dogsReducer } from './reducers/dogs'
 import { sheltersReducer } from './reducers/shelters'
 
-
 const rootReducer = combineReducers({
   dogs: dogsReducer,
-  shelters: sheltersReducer
+  shelters: sheltersReducer,
 });
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 

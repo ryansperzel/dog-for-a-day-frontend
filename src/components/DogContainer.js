@@ -26,10 +26,10 @@ export class DogContainer extends Component {
   render() {
     return (
       <div>
-        {/*<div className="on-bottom">
-          <DogList setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
-        </div>*/}
-        <div className="on-top">
+        <div className="on-right">
+          <DogList className="content" setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
+        </div>
+        <div className="on-left">
           {this.props.latitude !== null && this.props.shelters.length !== 0 ? <GoogleApiWrapper latitude={this.props.latitude} shelters={this.props.shelters} longitude={this.props.longitude}/>
           :
           null}

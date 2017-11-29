@@ -49,3 +49,13 @@ body {
   .modal-body {
     text-align: center;
   }
+
+  .on-left {
+    float: left;
+  }
+
+  .on-right {
+    width: 50%;
+    float: right;
+    height: 100%;
+  }

@@ -152,7 +152,7 @@ export default class HomepageLayout extends Component {
               horizontal
               style={{ margin: '3em 0em', textTransform: 'uppercase' }}
             >
-              <a href='#'>Case Studies</a>
+              Demo
             </Divider>
             <Header as='h3' style={{ fontSize: '2em' }}>Did We Tell You About Our Bananas?</Header>
             <p style={{ fontSize: '1.33em' }}>

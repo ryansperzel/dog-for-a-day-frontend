@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { setSelectedDog } from '../actions/dogs'
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import SubmissionModal from './SubmissionModal'
 
 
 let mappedDisabledDates = []
@@ -30,8 +30,8 @@ export class DogShow extends Component {
 
   // Posts appointment to db
 
-  handleSubmit = (event) => {
-    console.log(this.props.selectedDog)
+  handleAppointmentSubmit = (event) => {
+    console.log("submitted appointment for", this.props.selectedDog)
     event.preventDefault()
     fetch('http://localhost:3000/api/v1/appointments', {
       headers:{
@@ -45,6 +45,9 @@ export class DogShow extends Component {
         day: this.state.date
       })
     })
+    // Is there a better way to do this?
+    this.props.history.push("/home")
+    // ^^
   }
 
 
@@ -68,18 +71,7 @@ export class DogShow extends Component {
         <div>
           <h1>{this.props.selectedDog.name}</h1>
           <InfiniteCalendar onSelect={this.handleDateSelect} disabledDates={this.props.disabledDates} width={300} height={450} selected={today} minDate={today}/>
-
-          <Modal trigger={<Button>Submit Reservation</Button>}>
-            <Modal.Header>Select a Photo</Modal.Header>
-            <Modal.Content image>
-              <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
-              <Modal.Description>
-                <Header>Default Profile Image</Header>
-                <p>We've found the following gravatar image associated with your e-mail address.</p>
-                <p>Is it okay to use this photo?</p>
-              </Modal.Description>
-            </Modal.Content>
-          </Modal>
+          <SubmissionModal selectedDog={this.props.selectedDog} date={this.state.date} handleAppointmentSubmit={this.handleAppointmentSubmit} />
         </div>}
       </div>
     )

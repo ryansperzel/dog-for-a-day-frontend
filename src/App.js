@@ -18,7 +18,7 @@ export default class App extends Component {
       <div className="App">
         <Route exact path="/" render={props => <HomepageLayout {...props} />} />
         <Route exact path="/login" render={props => <Login {...props} />} />
-        <Route exact path="/signup" render={props => <Home {...props} />} />
+        <Route exact path="/signup" render={props => <Signup {...props} />} />
         <Route exact path="/home" render={props => <Home {...props} />} />
         <Route exact path="/dogs" render={props => <DogContainer {...props} />} />
         <Route path="/dogs/:dogId" render={props => <DogShow {...props} />} />
