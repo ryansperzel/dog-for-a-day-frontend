@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import MapContainer from './components/MapContainer'
 import HomepageLayout from './components/Landing'
 import Login from './components/Login'
+import Signup from './components/Signup'
+
 
 export default class App extends Component {
 
