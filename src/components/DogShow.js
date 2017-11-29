@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { setSelectedDog } from '../actions/dogs'
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css'
+import { Button, Header, Image, Modal } from 'semantic-ui-react'
+
 
 let mappedDisabledDates = []
 
@@ -66,27 +68,18 @@ export class DogShow extends Component {
         <div>
           <h1>{this.props.selectedDog.name}</h1>
           <InfiniteCalendar onSelect={this.handleDateSelect} disabledDates={this.props.disabledDates} width={300} height={450} selected={today} minDate={today}/>
-          <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-          <div id="myModal" className="modal fade" role="dialog">
-            <div className="modal-dialog">
-
-              <div className="modal-content">
-                <div className="modal-header">
-                  <button type="button" className="close" data-dismiss="modal">&times;</button>
-                  <h4 className="modal-title">Modal Header</h4>
-                </div>
-                <div className="modal-body">
-                  <img src="https://dhn-hes.ca.uky.edu/files/styles/panopoly_image_original/public/gloucestershire_old_spots_hog.jpg?itok=k5m0SGsc" height="400" width="400"/>
-                </div>
-                <div className="modal-footer">
-                <button type="button" className="btn btn-default" onClick={this.handleSubmit}>Reserve</button>
-                  <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <Modal trigger={<Button>Submit Reservation</Button>}>
+            <Modal.Header>Select a Photo</Modal.Header>
+            <Modal.Content image>
+              <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
+              <Modal.Description>
+                <Header>Default Profile Image</Header>
+                <p>We've found the following gravatar image associated with your e-mail address.</p>
+                <p>Is it okay to use this photo?</p>
+              </Modal.Description>
+            </Modal.Content>
+          </Modal>
         </div>}
       </div>
     )

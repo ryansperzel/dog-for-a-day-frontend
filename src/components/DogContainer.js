@@ -26,13 +26,13 @@ export class DogContainer extends Component {
   render() {
     return (
       <div>
-        <div className="on-bottom">
+        {/*<div className="on-bottom">
           <DogList setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
-        </div>
+        </div>*/}
         <div className="on-top">
-          {/*{this.props.latitude !== null && this.props.shelters.length !== 0 ? <GoogleApiWrapper latitude={this.props.latitude} shelters={this.props.shelters} longitude={this.props.longitude}/>
+          {this.props.latitude !== null && this.props.shelters.length !== 0 ? <GoogleApiWrapper latitude={this.props.latitude} shelters={this.props.shelters} longitude={this.props.longitude}/>
           :
-          null}*/}
+          null}
         </div>
 
       </div>

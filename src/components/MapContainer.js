@@ -46,8 +46,8 @@ export class MapContainer extends Component {
       })
 
       const style = {
-        width: '100%',
-        height: '80%'
+        width: '50%',
+        height: '100%'
       }
       return (
         <Map
@@ -57,7 +57,7 @@ export class MapContainer extends Component {
                 lng: this.props.longitude
               }}
               style={style}
-              zoom={15}
+              zoom={14}
               onClick={this.handleMapClick}
             >
             {mappedMarkers}
