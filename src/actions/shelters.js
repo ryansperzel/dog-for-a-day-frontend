@@ -18,7 +18,7 @@ export function fetchShelters(location) {
 
 // Saves fetch result dogs to the database
 
-function seedShelters(shelters) {
+export function seedShelters(shelters) {
   return fetch("http://localhost:3000/api/v1/shelters", {
     headers:{
       'Accept': 'application/json',
@@ -27,4 +27,13 @@ function seedShelters(shelters) {
     method: "POST",
     body: JSON.stringify({shelters})
     })
+  }
+
+  export function setSelectedShelter(shelter) {
+    return (dispatch) => {
+      dispatch({
+        type: "SET_SELECTED_SHELTER",
+        payload: shelter
+      })
+    }
   }

@@ -19,11 +19,13 @@ export class MapContainer extends Component {
 
 
   handleMarkerClick = (props, marker, e) => {
+    console.log(props)
     this.setState({
       selectedPlace: props.shelter,
       activeMarker: marker,
       showingInfoWindow: true
     })
+    this.props.setSelectedShelter(props.shelter)
   }
 
 

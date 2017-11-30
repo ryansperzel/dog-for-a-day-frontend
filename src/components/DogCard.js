@@ -16,10 +16,11 @@ export default class DogList extends Component {
 
   render() {
     const linkURL = `/dogs/${this.props.dog.id.$t}`
+    const imageSRC = this.props.dog.media.photos === undefined ? null : this.props.dog.media.photos.photo[3].$t
     return(
 
       <Link to={linkURL} className="textWithBlurredBg">
-          <img className="dog-image" alt="" src={this.props.dog.media.photos.photo[3].$t} />
+          <img className="dog-image" alt="" src={imageSRC} />
           <h2>{this.props.dog.name.$t}</h2>
       </Link>
 

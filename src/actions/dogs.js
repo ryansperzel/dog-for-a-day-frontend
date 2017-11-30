@@ -6,7 +6,7 @@ const proxyurl = 'https://cors-anywhere.herokuapp.com/'
 export function fetchDogs(location) {
   return (dispatch) => {
     dispatch({ type: 'LOADING' })
-    return fetch(`${proxyurl}http://api.petfinder.com/pet.find?key=${petKey}&location=${location}&animal=dog&count=50&format=json`)
+    return fetch(`${proxyurl}http://api.petfinder.com/pet.find?key=${petKey}&location=${location}&animal=dog&count=800&format=json`)
       .then(response => response.json())
       .then(json => dispatch({
         type: "ADD_DOG",

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router'
-import { fetchShelters } from '../actions/shelters'
+import { fetchShelters, setSelectedShelter } from '../actions/shelters'
 import { fetchDogs, setSelectedDog } from '../actions/dogs'
 import Home from './Home'
 import { connect } from 'react-redux'
@@ -27,10 +27,10 @@ export class DogContainer extends Component {
     return (
       <div>
         <div className="on-right">
-          <DogList className="content" setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
+          <DogList className="content" selectedShelter={this.props.selectedShelter} setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
         </div>
         <div className="on-left">
-          {this.props.latitude !== null && this.props.shelters.length !== 0 ? <GoogleApiWrapper latitude={this.props.latitude} shelters={this.props.shelters} longitude={this.props.longitude}/>
+          {this.props.latitude !== null && this.props.shelters.length !== 0 ? <GoogleApiWrapper setSelectedShelter={this.props.setSelectedShelter} latitude={this.props.latitude} shelters={this.props.shelters} longitude={this.props.longitude}/>
           :
           null}
         </div>
@@ -43,11 +43,11 @@ export class DogContainer extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return {fetchShelters: (location) => dispatch(fetchShelters(location)), fetchDogs: (location) => dispatch(fetchDogs(location)), setSelectedDog: (id) => dispatch(setSelectedDog(id))}
+  return {fetchShelters: (location) => dispatch(fetchShelters(location)), fetchDogs: (location) => dispatch(fetchDogs(location)), setSelectedDog: (id) => dispatch(setSelectedDog(id)), setSelectedShelter: (shelter) => dispatch(setSelectedShelter(shelter)) }
 }
 
 function mapStateToProps(state){
-  return {dogs: state.dogs.allDogs, shelters: state.shelters.allShelters, location: state.shelters.location, selectedDog: state.dogs.selectedDog, latitude: state.shelters.latitude, longitude: state.shelters.longitude}
+  return {dogs: state.dogs.allDogs, shelters: state.shelters.allShelters, location: state.shelters.location, selectedDog: state.dogs.selectedDog, selectedShelter: state.shelters.selectedShelter, latitude: state.shelters.latitude, longitude: state.shelters.longitude}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DogContainer)

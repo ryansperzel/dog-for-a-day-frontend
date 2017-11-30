@@ -1,4 +1,4 @@
-export function sheltersReducer(state = {allShelters: [], location: null, latitude: null, longitude: null}, action) {
+export function sheltersReducer(state = {allShelters: [], selectedShelter: null, location: null, latitude: null, longitude: null}, action) {
   switch(action.type) {
 
 
@@ -12,6 +12,9 @@ export function sheltersReducer(state = {allShelters: [], location: null, latitu
 
     case "ADD_SHELTER":
       return {...state, allShelters: [...state.allShelters, action.payload]}
+
+    case "SET_SELECTED_SHELTER":
+      return {...state, selectedShelter: action.payload}
 
     default:
       return {...state}
