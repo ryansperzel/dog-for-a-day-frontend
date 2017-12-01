@@ -53,6 +53,7 @@ export class DogShow extends Component {
 
 
   render() {
+    console.log(this.props.selectedDog)
 
     // Takes the appointment days already saved in the db for the selected dog and saves them to an array. If statement checks to see if fetch was returned yet. If not, does not reassign variable
 

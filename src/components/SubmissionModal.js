@@ -19,7 +19,7 @@ export default class SubmissionModal extends Component {
         <Modal.Header>Confirm Reservation Details</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src='https://i.imgur.com/8qbBGTv.png' />
-          <Modal.Description>
+          <Modal.Description className="modal-description">
             <Header>Reservation Maker</Header>
             <p>Reserving {this.props.selectedDog.name}</p>
             <p>For date {this.props.date.toString()}</p>

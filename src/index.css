@@ -108,3 +108,13 @@ body {
   .on-right {
     grid-area: 1 / 2 / span 1 / span 1;
   }
+
+  .video-bg {
+    background-image: url('./images/dogbg1.jpg');
+  }
+
+  .modal-description {
+    margin-left: 8%;
+    margin-top: 10%;
+    text-align: center;
+  }

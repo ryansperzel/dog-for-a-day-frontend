@@ -55,6 +55,7 @@ export default class HomepageLayout extends Component {
             textAlign='center'
             style={{ minHeight: 700, padding: '1em 0em' }}
             vertical
+            className="video-bg"
           >
             <Container>
               <Menu inverted pointing secondary size='large'>
