@@ -43,7 +43,7 @@ export class MapContainer extends Component {
 
       const mappedMarkers = this.props.shelters[0].shelter.map((s, idx) => {
         return(<Marker key={idx} shelter={s} title={s.name.$t} name={s.name.$t} position={{lat: s.latitude.$t, lng: s.longitude.$t}} icon={{
-          url:"https://emojipedia-us.s3.amazonaws.com/thumbs/120/emoji-one/49/dog-face_1f436.png"
+          url:"https://i.imgur.com/0C25FVX.png?1"
         }} onClick={this.handleMarkerClick}/>)
       })
 

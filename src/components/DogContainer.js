@@ -25,7 +25,7 @@ export class DogContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="dog-container-grid">
         <div className="on-right">
           <DogList className="content" selectedShelter={this.props.selectedShelter} setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
         </div>

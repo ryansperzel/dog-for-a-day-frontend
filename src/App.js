@@ -8,6 +8,7 @@ import MapContainer from './components/MapContainer'
 import HomepageLayout from './components/Landing'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import Account from './components/Account'
 
 
 export default class App extends Component {
@@ -19,6 +20,7 @@ export default class App extends Component {
         <Route exact path="/" render={props => <HomepageLayout {...props} />} />
         <Route exact path="/login" render={props => <Login {...props} />} />
         <Route exact path="/signup" render={props => <Signup {...props} />} />
+        <Route exact path="/account" render={props => <Account {...props} />} />
         <Route exact path="/home" render={props => <Home {...props} />} />
         <Route exact path="/dogs" render={props => <DogContainer {...props} />} />
         <Route path="/dogs/:dogId" render={props => <DogShow {...props} />} />

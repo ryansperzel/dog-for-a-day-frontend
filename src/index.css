@@ -50,7 +50,7 @@ body {
     text-align: center;
   }
 
-  .on-left {
+  /*.on-left {
     float: left;
   }
 
@@ -58,9 +58,53 @@ body {
     width: 50%;
     float: right;
     height: 100%;
-  }
+  }*/
 
   .content {
     height: 100%;
     overflow: auto;
+  }
+
+  .search-page-grid {
+    width: 100vw;
+    height: 100vh;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.8fr 1fr 1fr;
+    background-image: url('./images/dogbg2.jpg');
+    background-size: cover;
+
+  }
+
+  .form-div {
+    height: 50%;
+    grid-area: 3 / 2 / span 1 / span 1;
+    border-radius: 25px;
+    padding: 15px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .form-div h2{
+    color: white;
+  }
+
+  .search-form {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .dog-container-grid {
+    width: 100vw;
+    height: 100vh;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .on-left {
+    grid-area: 1 / 1 / span 1 / span 1;
+  }
+
+  .on-right {
+    grid-area: 1 / 2 / span 1 / span 1;
   }

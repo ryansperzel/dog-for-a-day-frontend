@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Button, Form, Grid, Segment, Input } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import { setLocation, setLatLong } from '../actions/dogs'
+import { setUser } from '../actions/users'
 
 
 
@@ -10,6 +12,10 @@ export class Home extends Component {
   state = {
     location: "",
     submitted: false,
+  }
+
+  componentWillMount() {
+    this.props.setUser()
   }
 
 
@@ -32,20 +38,30 @@ export class Home extends Component {
 
   render() {
     return (
-      <div className="big-search-form">
-        {this.state.submitted === true ? <Redirect to="/dogs"/> : null}
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} placeholder="City, State" type="text" value={this.state.location}/>
-          <input type="submit" />
-        </form>
-      </div>
+      <div className="search-page-grid">
+      {this.state.submitted === true ? <Redirect to="/dogs"/> : null}
+            <div className="form-div">
+              <Form onSubmit={this.handleSubmit}>
+                {/*<Segment textAlign="center" className="segment">*/}
+                  <h2>Connecting People to Shelter Dogs</h2>
+                  <br/>
+                  <div className="search-form">
+                  <Form.Group inline>
+                    <Form.Field control={Input} width={12} fluid icon='marker' iconPosition='left' placeholder='City, State' onChange={this.handleChange} value={this.state.location}/>
+                    <Form.Button width={4} fluid type="submit">Search</Form.Button>
+                  </Form.Group>
+                </div>
+                {/*</Segment>*/}
+              </Form>
+            </div>
+        </div>
     );
   }
 }
 
 
 function mapDispatchToProps(dispatch){
-  return {setLocation: (location) => dispatch(setLocation(location)), setLatLong: (location) => dispatch(setLatLong(location))}
+  return {setLocation: (location) => dispatch(setLocation(location)), setLatLong: (location) => dispatch(setLatLong(location)), setUser: () => dispatch(setUser())}
 }
 
 

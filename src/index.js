@@ -10,10 +10,12 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { dogsReducer } from './reducers/dogs'
 import { sheltersReducer } from './reducers/shelters'
+import { usersReducer } from './reducers/users'
 
 const rootReducer = combineReducers({
   dogs: dogsReducer,
   shelters: sheltersReducer,
+  users: usersReducer
 });
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
