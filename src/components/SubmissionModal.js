@@ -23,7 +23,7 @@ export default class SubmissionModal extends Component {
           <Modal.Description className="modal-description">
             <Header>Reservation Maker</Header>
             <p>Reserving {this.props.selectedDog.name}</p>
-            <p>For date {this.props.date.toString()}</p>
+            <p>for {this.props.date.toString()}</p>
             <p>{this.props.selectedDog.name}'s <Popup trigger={<a><b>doggie bag</b></a>} content="A doggie bag includes enough food and water for the day (with pet bowls), toys, and specific info about what your reserved dog likes!" on='hover'/> will </p>
           </Modal.Description>
         </Modal.Content>

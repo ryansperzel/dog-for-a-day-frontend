@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Puppy from '../images/Puppy.mp4'
 import { Button, Form, Grid, Segment, Input, Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
@@ -8,6 +7,16 @@ import { setDemoUser } from '../actions/users'
 import Login from './Login'
 import Signup from './Signup'
 import Terrance from '../images/terrance.png'
+import River from '../images/River.mp4'
+import Puppy from '../images/Puppy.mp4'
+import Drinking from '../images/Drinking.mp4'
+import Walking from '../images/Walking.mp4'
+import Grass from '../images/Grass.mp4'
+import Tennis from '../images/Tennis.mp4'
+import Looking from '../images/Looking.mov'
+
+
+
 
 
 export class Home extends Component {
@@ -53,12 +62,16 @@ export class Home extends Component {
   }
 
   render() {
+
+    const videos = [River, Puppy, Drinking, Looking, Walking, Tennis, Grass]
+    const randomVid = videos[Math.floor(Math.random() * videos.length)];
+
     return (
       <div>
       {this.state.submitted === true ? <Redirect to="/dogs"/> : null}
         <div className="background-wrap-custom">
           <video id="video-bg-elem" preload="auto" autoPlay="true" loop="loop" muted="muted">
-            <source src={Puppy} type="video/mp4" />
+            <source src={randomVid} type="video/mp4" />
             Video not supported
           </video>
         </div>
