@@ -7,7 +7,6 @@ import { setDemoUser } from '../actions/users'
 import Login from './Login'
 import Signup from './Signup'
 import Terrance from '../images/terrance.png'
-import River from '../images/River.mp4'
 import Puppy from '../images/Puppy.mp4'
 import Drinking from '../images/Drinking.mp4'
 import Walking from '../images/Walking.mp4'
@@ -63,7 +62,7 @@ export class Home extends Component {
 
   render() {
 
-    const videos = [River, Puppy, Drinking, Looking, Walking, Tennis, Grass]
+    const videos = [Puppy, Drinking, Looking, Walking, Tennis, Grass]
     const randomVid = videos[Math.floor(Math.random() * videos.length)];
 
     return (
