@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setUser } from '../actions/users'
+import { setDemoUser } from '../actions/users'
 
 
 export class Account extends Component {
 
   componentWillMount(){
-    this.props.setUser()
+    this.props.setDemoUser()
   }
 
   render() {
 
-    
+
     return (
       <div>
         <h1>Hello, {this.props.currentUser.first_name}</h1>
@@ -26,7 +26,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return {setUser: () => dispatch(setUser())}
+  return {setDemoUser: () => dispatch(setDemoUser())}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account)

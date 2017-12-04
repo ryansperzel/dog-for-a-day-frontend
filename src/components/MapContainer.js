@@ -47,8 +47,14 @@ export class MapContainer extends Component {
         }} onClick={this.handleMarkerClick}/>)
       })
 
+      const containerStyle= {
+        width: '70%',
+        height: '100%',
+        position: 'fixed'
+      }
+
       const style = {
-        width: '50%',
+        width: '100%',
         height: '100%'
       }
       return (
@@ -58,9 +64,11 @@ export class MapContainer extends Component {
                 lat: this.props.latitude,
                 lng: this.props.longitude
               }}
+              containerStyle={containerStyle}
               style={style}
               zoom={14}
               onClick={this.handleMapClick}
+              className="size-fix"
             >
             {mappedMarkers}
             <InfoWindow

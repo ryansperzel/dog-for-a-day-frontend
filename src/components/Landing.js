@@ -16,10 +16,6 @@ import {
 const FixedMenu = () => (
   <Menu fixed='top' size='large'>
     <Container>
-      <Menu.Item as='a' active>Home</Menu.Item>
-      <Menu.Item as='a'>Work</Menu.Item>
-      <Menu.Item as='a'>Company</Menu.Item>
-      <Menu.Item as='a'>Careers</Menu.Item>
       <Menu.Menu position='right'>
         <Menu.Item className='item'>
           <Button as='a'>Log in</Button>
@@ -63,14 +59,10 @@ export default class HomepageLayout extends Component {
             textAlign='center'
             style={{ minHeight: 700, padding: '1em 0em' }}
             vertical
-            className="video-bg"
+            className="test-bg"
           >
             <Container>
               <Menu inverted pointing secondary size='large'>
-                <Menu.Item as='a' active>Home</Menu.Item>
-                <Menu.Item as='a'>Work</Menu.Item>
-                <Menu.Item as='a'>Company</Menu.Item>
-                <Menu.Item as='a'>Careers</Menu.Item>
                 <Menu.Item position='right'>
                   <Button as='a' onClick={this.handleLogin} inverted>Log in</Button>
                   <Button as='a' onClick={this.handleSignup} inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>

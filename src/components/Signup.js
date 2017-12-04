@@ -47,7 +47,7 @@ export default class Signup extends Component {
                   type='password'
                 />
 
-                <Button color='teal' fluid size='large'>Login</Button>
+                <Button color='teal' fluid size='large'>Sign Up</Button>
               </Segment>
             </Form>
             <Message>
