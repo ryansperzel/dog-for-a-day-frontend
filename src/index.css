@@ -168,6 +168,16 @@ body {
   color: #aaa;
 }
 
+.terrance {
+  margin-left: 47%;
+}
+
+.terrance:hover {
+  width:125px;
+  height:125px;
+  margin-left: 46%;
+}
+
 
 
 /*End landing page custom CSS*/

@@ -27,12 +27,23 @@ export default class Signup extends Component {
           verticalAlign='middle'
         >
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='teal' textAlign='center'>
+            <Header as='h2' color='black' textAlign='center'>
               <Image src='/logo.png' />
-              {' '}Create a new account
             </Header>
             <Form size='large'>
               <Segment stacked>
+              <Form.Input
+                fluid
+                icon='user'
+                iconPosition='left'
+                placeholder='First name'
+              />
+              <Form.Input
+                fluid
+                icon='user'
+                iconPosition='left'
+                placeholder='Last name'
+              />
                 <Form.Input
                   fluid
                   icon='user'
@@ -47,11 +58,11 @@ export default class Signup extends Component {
                   type='password'
                 />
 
-                <Button color='teal' fluid size='large'>Sign Up</Button>
+                <Button color='black' fluid size='large'>Sign Up</Button>
               </Segment>
             </Form>
             <Message>
-              Already have an account? <Link to="/login">Login</Link>
+              Already have an account? <a onClick={this.props.handleLogin} href="javascript:;">Login</a>
             </Message>
           </Grid.Column>
         </Grid>

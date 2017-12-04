@@ -29,7 +29,6 @@ export default class Login extends Component {
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as='h2' color='teal' textAlign='center'>
               <Image src='/logo.png' />
-              {' '}Log-in to your account
             </Header>
             <Form size='large'>
               <Segment stacked>
@@ -51,7 +50,7 @@ export default class Login extends Component {
               </Segment>
             </Form>
             <Message>
-              New to us? <Link to="/signup">Sign Up</Link>
+              New to us? <a href="javascript:;" onClick={this.props.handleSignup}>Sign Up</a>
             </Message>
           </Grid.Column>
         </Grid>

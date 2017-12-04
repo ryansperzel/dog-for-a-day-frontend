@@ -7,27 +7,26 @@ import { setLocation, setLatLong } from '../actions/dogs'
 import { setDemoUser } from '../actions/users'
 import Login from './Login'
 import Signup from './Signup'
+import Terrance from '../images/terrance.png'
 
 
 export class Home extends Component {
   state = {
     location: "",
     submitted: false,
+    home: true,
     login: false,
     signup: false
   }
 
-  componentWillMount() {
-    this.props.setDemoUser()
-  }
 
   handleLogin = () => {
-    this.setState({login: true})
+    this.setState({login: true, signup: false, home: false})
     // this.props.history.push("/login")
   }
 
   handleSignup = () => {
-    this.props.history.push("/signup")
+    this.setState({signup: true, home: false, login: false})
   }
 
 
@@ -48,6 +47,11 @@ export class Home extends Component {
   }
 
 
+  hitTerrance = () => {
+    this.props.setDemoUser()
+    this.props.history.push("/account")
+  }
+
   render() {
     return (
       <div>
@@ -59,36 +63,49 @@ export class Home extends Component {
           </video>
         </div>
 
-        {this.state.login === true ? <Login/> :
-        <div>
-        <div className="content-custom">
-        <Menu inverted pointing secondary size='large'>
-          <Menu.Item position='right'>
-            <Button as='a' onClick={this.handleLogin} inverted>Log in</Button>
-            <Button as='a' onClick={this.handleSignup} inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>
-          </Menu.Item>
-        </Menu>
-          <h1>Dog for a Day</h1>
-          <p>Lorem ipsum some other shit.</p>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <Form className="search-form" onSubmit={this.handleSubmit}>
-              <Form.Group inline>
-                <Form.Field control={Input} width={4} fluid icon='marker' iconPosition='left' placeholder='City, State' onChange={this.handleChange} value={this.state.location}/>
-                <Form.Button width={1} fluid icon="paw" type="submit"></Form.Button>
-              </Form.Group>
-          </Form>
-        </div>
-        </div>
-      }
+        {this.state.home === true ?
+              <div>
+                <div className="content-custom">
+                <Menu inverted pointing secondary size='large'>
+                  <Menu.Item position='right'>
+                    <Button as='a' onClick={this.handleLogin} inverted>Log in</Button>
+                    <Button as='a' onClick={this.handleSignup} inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>
+                  </Menu.Item>
+                </Menu>
+                  <h1>Dog for a Day</h1>
+                  <p>Lorem ipsum some other shit.</p>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <Form className="search-form" onSubmit={this.handleSubmit}>
+                      <Form.Group inline>
+                        <Form.Field control={Input} width={4} fluid icon='marker' iconPosition='left' placeholder='City, State' onChange={this.handleChange} value={this.state.location}/>
+                        <Form.Button width={1} fluid icon="paw" type="submit"></Form.Button>
+                      </Form.Group>
+                  </Form>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <a href="javascript:;">
+                    <img src={Terrance} className="terrance" onClick={this.hitTerrance} alt="" height="75" width="75" />
+                  </a>
+                </div>
+              </div>
+                 :
+                  null}
+
+        {this.state.login === true ? <Login handleSignup={this.handleSignup}/> : null}
+        {this.state.signup === true ? <Signup handleLogin={this.handleLogin}/> : null}
         </div>
     )
 
