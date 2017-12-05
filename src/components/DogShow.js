@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setSelectedDog } from '../actions/dogs'
+import { addAppointment, setDemoUser } from '../actions/users'
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css'
 import SubmissionModal from './SubmissionModal'
@@ -19,6 +20,7 @@ export class DogShow extends Component {
 
   componentDidMount(){
     this.props.setSelectedDog(this.props.match.params.dogId)
+    this.props.setDemoUser()
   }
 
 
@@ -32,6 +34,7 @@ export class DogShow extends Component {
 
   handleAppointmentSubmit = (event) => {
     event.preventDefault()
+    console.log(this.state.date.toISOString())
     fetch('http://localhost:3000/api/v1/appointments', {
       headers:{
         'Accept': 'application/json',
@@ -41,14 +44,17 @@ export class DogShow extends Component {
       body: JSON.stringify({
         dog_id: parseInt(this.props.selectedDog.id),
         user_id: 1,
-        day: this.state.date,
+        day: this.state.date.toISOString(),
         name: this.props.selectedDog.name,
         photo: this.props.selectedDog.photo
       })
     })
-    // Is there a better way to do this?
-    this.props.history.push("/account")
-    // ^^
+    .then(res => res.json())
+    .then(json => {
+      this.props.addAppointment(json)
+      this.props.history.push("/account")
+    })
+    // Is there a better way to do this? ^^
   }
 
 
@@ -84,7 +90,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return {setSelectedDog: (dog) => dispatch(setSelectedDog(dog))}
+  return {setDemoUser: () => dispatch(setDemoUser()), setSelectedDog: (dog) => dispatch(setSelectedDog(dog)), addAppointment: (appointment) => dispatch(addAppointment(appointment))}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DogShow)

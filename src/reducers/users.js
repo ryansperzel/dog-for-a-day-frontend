@@ -6,7 +6,7 @@ export function usersReducer(state = {currentUser: {}}, action) {
 
     case "DELETE_APPOINTMENT":
       const newAppointments = state.currentUser.appointments.filter(app => {
-        app.id !== action.payload
+        return app.id !== action.payload
       })
       return {...state, currentUser: {...state.currentUser, appointments: [...newAppointments]}}
 

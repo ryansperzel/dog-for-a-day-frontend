@@ -14,17 +14,15 @@ BigCalendar.momentLocalizer(moment)
 export class UserCalendar extends Component {
 
   componentDidMount() {
-    console.log(this.props.currentUser)
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
   }
 
 
   render() {
+    console.log(this.props, "Hello from usersCalendar")
 
-    // let myEventsList = [{title: "test", start: new Date(), end: new Date(Date.now() + (1000*60*60))}]
     let myEventsList = []
     if (this.props.currentUser.appointments) {
       myEventsList = this.props.currentUser.appointments.map(app => {

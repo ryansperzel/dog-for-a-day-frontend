@@ -14,12 +14,10 @@ export class MapContainer extends Component {
 
 
     componentWillMount() {
-      console.log(this.props)
     }
 
 
   handleMarkerClick = (props, marker, e) => {
-    console.log(props)
     this.setState({
       selectedPlace: props.shelter,
       activeMarker: marker,

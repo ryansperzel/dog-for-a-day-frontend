@@ -31,7 +31,6 @@ export default class DogList extends Component {
       let filteredDogs = this.props.dogs[0].pet.filter(dog => {
         return dog.shelterId.$t === this.props.selectedShelter.id.$t
       })
-      console.log(filteredDogs)
       // let mappedDogs = filteredDogs.map(dog => (<DogCard setSelectedDog={this.props.setSelectedDog} key={cuid()} dog={dog} />))
       let mappedDogs = filteredDogs.map((dog, idx) => {
         let dogURL = `/dogs/${dog.id.$t}`

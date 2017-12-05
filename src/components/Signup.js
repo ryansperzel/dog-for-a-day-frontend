@@ -63,6 +63,9 @@ export default class Signup extends Component {
             </Form>
             <Message>
               Already have an account? <a onClick={this.props.handleLogin} href="javascript:;">Login</a>
+              <br/>
+              <br/>
+              <a href="javascript:;" onClick={this.props.handleHome}>Home</a>
             </Message>
           </Grid.Column>
         </Grid>

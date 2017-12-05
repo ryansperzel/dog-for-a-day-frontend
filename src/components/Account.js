@@ -20,8 +20,8 @@ export class Account extends Component {
     this.props.setDemoUser()
   }
 
+
   setCalendarDog = (event) => {
-    console.log(event)
     this.setState({calendarDog: event.appointment}, console.log(this.state.calendarDog))
   }
 

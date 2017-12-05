@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Button, Form, Input, Menu } from 'semantic-ui-react'
+import { Button, Form, Input, Menu, Dimmer, Loader } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
-import { setLocation, setLatLong } from '../actions/dogs'
+import { setLocation, setLatLong , fetchDogs} from '../actions/dogs'
+import { fetchShelters } from '../actions/shelters'
 import { setDemoUser } from '../actions/users'
+import { petKey } from '../keys/keys.js'
 import Login from './Login'
 import Signup from './Signup'
 import Terrance from '../images/terrance.png'
@@ -16,11 +18,13 @@ import Looking from '../images/Looking.mov'
 
 
 
+const proxyurl = 'https://cors-anywhere.herokuapp.com/'
 
 
 export class Home extends Component {
   state = {
     location: "",
+    loading: false,
     submitted: false,
     home: true,
     login: false,
@@ -37,6 +41,10 @@ export class Home extends Component {
     this.setState({signup: true, home: false, login: false})
   }
 
+  handleHome = () => {
+    this.setState({signup: false, home: true, login: false})
+  }
+
 
 
 
@@ -49,9 +57,19 @@ export class Home extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    this.setState({loading: true})
     this.props.setLocation(event.target[0].value)
     this.props.setLatLong(event.target[0].value)
-    this.setState({submitted: true})
+    fetch(`${proxyurl}http://api.petfinder.com/pet.find?key=${petKey}&location=${event.target[0].value}&animal=dog&count=800&format=json`)
+      .then(res => res.json)
+      .then(json => {
+        dispatch({
+          type: "ADD_DOG",
+          payload: json.petfinder.pets
+        })
+        
+        this.setState({submitted: true})
+      })
   }
 
 
@@ -68,6 +86,11 @@ export class Home extends Component {
     return (
       <div>
       {this.state.submitted === true ? <Redirect to="/dogs"/> : null}
+      {this.state.loading === true ?
+        <Dimmer active>
+          <Loader size='huge'>Loading your puppers</Loader>
+        </Dimmer>
+      : null}
         <div className="background-wrap-custom">
           <video id="video-bg-elem" preload="auto" autoPlay="true" loop="loop" muted="muted">
             <source src={randomVid} type="video/mp4" />
@@ -77,6 +100,8 @@ export class Home extends Component {
 
         {this.state.home === true ?
               <div>
+
+
                 <div className="content-custom">
                 <Menu inverted pointing secondary size='large'>
                   <Menu.Item position='right'>
@@ -116,8 +141,8 @@ export class Home extends Component {
                  :
                   null}
 
-        {this.state.login === true ? <Login handleSignup={this.handleSignup}/> : null}
-        {this.state.signup === true ? <Signup handleLogin={this.handleLogin}/> : null}
+        {this.state.login === true ? <Login handleHome={this.handleHome} handleSignup={this.handleSignup}/> : null}
+        {this.state.signup === true ? <Signup handleHome={this.handleHome} handleLogin={this.handleLogin}/> : null}
         </div>
     )
 
@@ -127,7 +152,7 @@ export class Home extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return {setLocation: (location) => dispatch(setLocation(location)), setLatLong: (location) => dispatch(setLatLong(location)), setDemoUser: () => dispatch(setDemoUser())}
+  return {fetchShelters: (location) => dispatch(fetchShelters(location)), fetchDogs: (location) => dispatch(fetchDogs(location)), setLocation: (location) => dispatch(setLocation(location)), setLatLong: (location) => dispatch(setLatLong(location)), setDemoUser: () => dispatch(setDemoUser())}
 }
 
 

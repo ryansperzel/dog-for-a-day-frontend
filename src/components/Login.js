@@ -51,6 +51,9 @@ export default class Login extends Component {
             </Form>
             <Message>
               New to us? <a href="javascript:;" onClick={this.props.handleSignup}>Sign Up</a>
+              <br/>
+              <br/>
+              <a href="javascript:;" onClick={this.props.handleHome}>Home</a>
             </Message>
           </Grid.Column>
         </Grid>

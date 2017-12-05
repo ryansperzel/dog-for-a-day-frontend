@@ -11,6 +11,13 @@ export class DeletionModal extends Component {
     modalOpen: false
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(this.props, nextProps)
+    if (this.props.calendarDog !== nextProps.calendarDog) {
+      this.setState({modalOpen: true})
+    }
+  }
+
 
   handleModalOpen = () => this.setState({ modalOpen: true })
 
