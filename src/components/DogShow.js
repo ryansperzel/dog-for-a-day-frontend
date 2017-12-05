@@ -46,7 +46,7 @@ export class DogShow extends Component {
       })
     })
     // Is there a better way to do this?
-    this.props.history.push("/home")
+    this.props.history.push("/account")
     // ^^
   }
 

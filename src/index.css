@@ -50,16 +50,6 @@ body {
     text-align: center;
   }
 
-  /*.on-left {
-    float: left;
-  }
-
-  .on-right {
-    width: 50%;
-    float: right;
-    height: 100%;
-  }*/
-
   .content {
     height: 100%;
     overflow: auto;
@@ -183,9 +173,16 @@ body {
 /*End landing page custom CSS*/
 
 
+/*Begin BigCalendar component custom CSS*/
+
 .big-calendar {
-  width: 50%;
-  height: 40%;
+}
+
+.big-calendar-container {
   float: right;
+  width: 40%;
+  height: 500px;
   margin-right: 10%;
 }
+
+/*End BigCalendar component custom CSS*/

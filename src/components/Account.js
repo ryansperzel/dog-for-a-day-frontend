@@ -1,23 +1,34 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setDemoUser } from '../actions/users'
-import BigCalendar from './BigCalendar'
+import UserCalendar from './UserCalendar'
+import DeletionModal from './DeletionModal'
 
 
 export class Account extends Component {
+
+
+  state = {
+    calendarDog: null
+  }
 
   componentWillMount(){
     this.props.setDemoUser()
   }
 
-  render() {
+  setCalendarDog = (event) => {
+    console.log(event)
+    this.setState({calendarDog: event.title}, console.log(this.state.calendarDog))
+  }
 
+  render() {
 
     return (
       <div>
         <h1>Hello, {this.props.currentUser.first_name}</h1>
         <h3>Your Past Puppy Pals</h3>
-        <BigCalendar/>
+        <UserCalendar setCalendarDog={this.setCalendarDog}/>
+        <DeletionModal calendarDog={this.state.calendarDog}/>
       </div>
     )
   }

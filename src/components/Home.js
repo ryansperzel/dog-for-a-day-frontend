@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Grid, Segment, Input, Menu } from 'semantic-ui-react'
+import { Button, Form, Input, Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import { setLocation, setLatLong } from '../actions/dogs'
