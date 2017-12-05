@@ -29,7 +29,7 @@ export class UserCalendar extends Component {
     if (this.props.currentUser.appointments) {
       myEventsList = this.props.currentUser.appointments.map(app => {
         let dayArr = app.day.split("-")
-        return {title: app.dog_id, start: new Date(dayArr[0], parseInt(dayArr[1]) - 1, dayArr[2]), end: new Date(dayArr[0], parseInt(dayArr[1]) - 1, parseInt(dayArr[2]) + 1)}
+        return {title: app.name, start: new Date(dayArr[0], parseInt(dayArr[1]) - 1, dayArr[2]), end: new Date(dayArr[0], parseInt(dayArr[1]) - 1, parseInt(dayArr[2]) + 1), appointment: app}
       })
     }
 

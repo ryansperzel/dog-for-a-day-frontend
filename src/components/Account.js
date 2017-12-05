@@ -4,12 +4,16 @@ import { setDemoUser } from '../actions/users'
 import UserCalendar from './UserCalendar'
 import DeletionModal from './DeletionModal'
 
+const testDog = {
+  name: "Tester",
+  photo: "something fake"
+}
+
 
 export class Account extends Component {
 
-
   state = {
-    calendarDog: null
+    calendarDog: testDog,
   }
 
   componentWillMount(){
@@ -18,7 +22,11 @@ export class Account extends Component {
 
   setCalendarDog = (event) => {
     console.log(event)
-    this.setState({calendarDog: event.title}, console.log(this.state.calendarDog))
+    this.setState({calendarDog: event.appointment}, console.log(this.state.calendarDog))
+  }
+
+  clearCalendarDog = () => {
+    this.setState({calendarDog: testDog})
   }
 
   render() {
@@ -28,7 +36,7 @@ export class Account extends Component {
         <h1>Hello, {this.props.currentUser.first_name}</h1>
         <h3>Your Past Puppy Pals</h3>
         <UserCalendar setCalendarDog={this.setCalendarDog}/>
-        <DeletionModal calendarDog={this.state.calendarDog}/>
+        <DeletionModal clearCalendarDog={this.clearCalendarDog} calendarDog={this.state.calendarDog}/>
       </div>
     )
   }

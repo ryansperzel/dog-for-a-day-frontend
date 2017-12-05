@@ -6,11 +6,9 @@ export function dogsReducer(state = {allDogs: [], selectedDog: null, disabledDat
       return {...state, allDogs: [...state.allDogs, action.payload]}
 
     case "LOADING":
-      console.log("Loading")
       return {...state}
 
     case "SELECT_DOG":
-    console.log("Setting dog")
       return {...state, selectedDog: action.payload}
 
     case "SET_DISABLED_DATES":

@@ -31,7 +31,6 @@ export class DogShow extends Component {
   // Posts appointment to db
 
   handleAppointmentSubmit = (event) => {
-    console.log("submitted appointment for", this.props.selectedDog)
     event.preventDefault()
     fetch('http://localhost:3000/api/v1/appointments', {
       headers:{
@@ -42,7 +41,9 @@ export class DogShow extends Component {
       body: JSON.stringify({
         dog_id: parseInt(this.props.selectedDog.id),
         user_id: 1,
-        day: this.state.date
+        day: this.state.date,
+        name: this.props.selectedDog.name,
+        photo: this.props.selectedDog.photo
       })
     })
     // Is there a better way to do this?
@@ -53,7 +54,6 @@ export class DogShow extends Component {
 
 
   render() {
-    console.log(this.props.selectedDog)
 
     // Takes the appointment days already saved in the db for the selected dog and saves them to an array. If statement checks to see if fetch was returned yet. If not, does not reassign variable
 

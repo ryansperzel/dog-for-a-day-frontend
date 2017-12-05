@@ -8,3 +8,21 @@ export function setDemoUser() {
       }))
   }
 }
+
+export function deleteAppointment(id) {
+  return (dispatch) => {
+    dispatch({
+      type: "DELETE_APPOINTMENT",
+      payload: id
+    })
+  }
+}
+
+export function addAppointment(appointment) {
+  return (dispatch) => {
+    dispatch({
+      type: "ADD_APPOINTMENT",
+      payload: appointment
+    })
+  }
+}
