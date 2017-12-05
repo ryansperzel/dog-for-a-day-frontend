@@ -46,9 +46,6 @@ export class DeletionModal extends Component {
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
-          <Button color='grey' onClick={this.handleModalClose}>
-            <Icon name='arrow left' /> Go Back
-          </Button>
           <Button color='red' onClick={this.handleDelete} inverted>
             <Icon name='remove' /> Delete Reservation
           </Button>

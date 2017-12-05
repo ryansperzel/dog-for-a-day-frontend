@@ -16,9 +16,10 @@ export function fetchDogs(location) {
   }
 }
 
+
   // Saves fetch result dogs to the database
 
-  function seedDogs(dogs) {
+  export function seedDogs(dogs) {
     return fetch("http://localhost:3000/api/v1/dogs", {
       headers:{
         'Accept': 'application/json',

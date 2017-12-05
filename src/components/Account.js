@@ -32,7 +32,7 @@ export class Account extends Component {
   render() {
 
     return (
-      <div>
+      <div className="account-bg">
         <h1>Hello, {this.props.currentUser.first_name}</h1>
         <h3>Your Past Puppy Pals</h3>
         <UserCalendar setCalendarDog={this.setCalendarDog}/>

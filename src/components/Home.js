@@ -21,6 +21,7 @@ import Looking from '../images/Looking.mov'
 const proxyurl = 'https://cors-anywhere.herokuapp.com/'
 
 
+
 export class Home extends Component {
   state = {
     location: "",
@@ -60,16 +61,7 @@ export class Home extends Component {
     this.setState({loading: true})
     this.props.setLocation(event.target[0].value)
     this.props.setLatLong(event.target[0].value)
-    fetch(`${proxyurl}http://api.petfinder.com/pet.find?key=${petKey}&location=${event.target[0].value}&animal=dog&count=800&format=json`)
-      .then(res => res.json)
-      .then(json => {
-        dispatch({
-          type: "ADD_DOG",
-          payload: json.petfinder.pets
-        })
-        
-        this.setState({submitted: true})
-      })
+    this.setState({submitted: true})
   }
 
 

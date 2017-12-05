@@ -186,3 +186,14 @@ body {
 }
 
 /*End BigCalendar component custom CSS*/
+
+/*Begin account page custom CSS*/
+
+.account-bg {
+  background-color: #f7f7f7;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+/*End account page custom CSS*/
