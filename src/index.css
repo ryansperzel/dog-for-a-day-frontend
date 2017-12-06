@@ -9,6 +9,7 @@ div.App {
   height: 200px;
 }
 
+
 .textWithBlurredBg{
     width:250px;
     height:250px;
@@ -126,19 +127,53 @@ div.App {
   /*Begin DogShow*/
 
   .modal-description {
-    margin-left: 8%;
-    margin-top: 10%;
+    margin-top: 8%;
     text-align: center;
   }
 
   .dog-show-container-div {
-    margin-top: 4%;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 0.3fr 0.5fr 0.01fr 0.27fr 0.3fr;
+    grid-template-rows: 1fr 1fr 8fr 1fr;
+    background-color: #F1EBC9;
+    background-image: url('./images/doggif.gif');
+
   }
 
   .tier-list {
     padding-left: 10%;
   }
 
+  .modal-button {
+    width: 21.5em;
+    margin-top: 5em;
+  }
+
+  .infinite-calendar-div {
+    grid-area: 3 / 4 / span 1 / span 1;
+    padding-left: 3em;
+    padding-top: 1.5em;
+    background-color: white;
+    border-radius: 5%;
+  }
+
+  .pic-name-div {
+    grid-area: 3 / 2 / span 1 / span 1;
+    background-color: white;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    border-radius: 5%;
+    text-align: center;
+    overflow: auto;
+  }
+
+  .dog-show-img {
+    margin-left: 10.5em;
+  }
 
   /*End DogShow*/
 
@@ -148,9 +183,11 @@ div.App {
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: Calibri, sans-serif;
 }
+
 .background-wrap-custom {
   position: fixed;
   z-index: -1000;
@@ -279,13 +316,11 @@ body {
   text-align: center;
   margin-left: 10%;
 }
-/*.calendar-div {
-  background-color: white;
-  padding-top: 1%;
-  padding-left: 1%;
-  top: 50%;
-  left: 10%;
-}*/
+
+.deletion-modal-description {
+  margin-top: 20%;
+  text-align: center;
+}
 
 
 

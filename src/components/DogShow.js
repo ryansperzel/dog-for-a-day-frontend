@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setSelectedDog } from '../actions/dogs'
 import { addAppointment, setDemoUser } from '../actions/users'
+import { Image, Icon } from 'semantic-ui-react'
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css'
 import SubmissionModal from './SubmissionModal'
 import NavBar from './NavBar'
-
 
 let mappedDisabledDates = []
 
@@ -71,6 +71,7 @@ export class DogShow extends Component {
 
 
   render() {
+    console.log(this.props.selectedDog)
 
     // Takes the appointment days already saved in the db for the selected dog and saves them to an array. If statement checks to see if fetch was returned yet. If not, does not reassign variable
 
@@ -88,9 +89,20 @@ export class DogShow extends Component {
         {this.props.selectedDog === null ? <p></p>
         :
         <div className="dog-show-container-div">
-          <h1>{this.props.selectedDog.name}</h1>
-          <InfiniteCalendar onSelect={this.handleDateSelect} disabledDates={this.props.disabledDates} width={300} height={450} selected={today} minDate={today}/>
-          <SubmissionModal selectedDog={this.props.selectedDog} date={this.state.date} handleAppointmentSubmit={this.handleAppointmentSubmit} />
+          <div className="pic-name-div">
+            <Image className="dog-show-img" src={this.props.selectedDog.photo} size='medium' circular />
+            <h2><b>{this.props.selectedDog.name}</b></h2>
+            <p>Sex: {this.props.selectedDog.sex}     |     Size: {this.props.selectedDog.size}     |     Age: {this.props.selectedDog.age}</p>
+            <p>Description: {this.props.selectedDog.description}</p>
+
+
+          </div>
+          <div className="infinite-calendar-div">
+            <InfiniteCalendar onSelect={this.handleDateSelect} disabledDates={this.props.disabledDates} width={300} height={450} selected={today} minDate={today}/>
+            <br/>
+            <br/>
+            <SubmissionModal selectedDog={this.props.selectedDog} date={this.state.date} handleAppointmentSubmit={this.handleAppointmentSubmit} />
+          </div>
         </div>}
       </div>
     )

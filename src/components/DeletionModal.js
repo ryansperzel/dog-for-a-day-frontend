@@ -45,7 +45,7 @@ export class DeletionModal extends Component {
         <Modal.Header>Reservation Details</Modal.Header>
         <Modal.Content image>
           <Image wrapped circular size='medium' src={this.props.calendarDog.photo}/>
-          <Modal.Description className="modal-description">
+          <Modal.Description className="deletion-modal-description">
             <Header>{this.props.calendarDog.name}</Header>
             <p> You have reserved {this.props.calendarDog.name} on {fixedDate[0] + ', ' + fixedDate[1] + " " + fixedDate[2] + " " + fixedDate[3]}</p>
           </Modal.Description>

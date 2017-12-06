@@ -27,7 +27,7 @@ export default class SubmissionModal extends Component {
     }
 
     return(
-      <Modal trigger={<Button onClick={this.handleModalOpen}>Submit Reservation</Button>} onClose={this.handleModalClose} open={this.state.modalOpen}>
+      <Modal size='small' trigger={<Button color='blue' className="modal-button" onClick={this.handleModalOpen}>Submit Reservation</Button>} onClose={this.handleModalClose} open={this.state.modalOpen}>
         <Modal.Header>Confirm Reservation Details</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src='https://i.imgur.com/8qbBGTv.png' />
