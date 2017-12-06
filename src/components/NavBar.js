@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import Logo from '../images/dogicon4.png'
 
 
 export default class NavBar extends Component {
@@ -14,7 +15,7 @@ export default class NavBar extends Component {
     return (
       <Menu stackable fixed="top">
         <Menu.Item>
-          <img src='https://react.semantic-ui.com/logo.png' />
+          <img src={Logo} />
         </Menu.Item>
 
         <Menu.Item

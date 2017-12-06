@@ -74,7 +74,6 @@ export class MapContainer extends Component {
               visible={this.state.showingInfoWindow}>
                 <div>
                   <h4>{this.state.selectedPlace.name.$t}</h4>
-                  <a href="#">Show me the pups!</a>
                 </div>
             </InfoWindow>
         </Map>

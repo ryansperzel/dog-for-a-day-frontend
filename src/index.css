@@ -186,14 +186,15 @@ body {
 /*Begin BigCalendar component custom CSS*/
 
 .big-calendar {
+
 }
 
 .big-calendar-container {
   float: right;
   width: 40%;
-  height: 500px;
-  margin-right: 15%;
-  margin-top: 20%;
+  height: 400px;
+  margin-right: 10%;
+  float: right;
 }
 
 /*End BigCalendar component custom CSS*/
@@ -205,6 +206,7 @@ body {
   background-size: cover;
   height: 100vh;
   width: 100vw;
+  background-image: url('./images/bg-paw-print.png');
 }
 
 .account-header {
@@ -215,7 +217,7 @@ body {
   padding-top: 1%;
   padding-left: 1%;
   border-radius: 25px;
-  top: 5%;
+  top: 7%;
   left: 10%;
   float: center;
 }
@@ -241,8 +243,18 @@ body {
   padding-top: 1%;
   padding-left: 1%;
   border-radius: 25px;
-  top: 25%;
+  top: 20%;
   left: 10%;
+}
+
+.account-image {
+  margin-left: 8%;
+}
+
+.account-name-header {
+  float: left;
+  text-align: center;
+  margin-left: 10%;
 }
 /*.calendar-div {
   background-color: white;
