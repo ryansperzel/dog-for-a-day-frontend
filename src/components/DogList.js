@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router'
 import DogCard from './DogCard'
-import { Item } from 'semantic-ui-react'
+import { Item, Dimmer, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 var cuid = require('cuid');
 
 export default class DogList extends Component {
 
   state = {
-    shelterSelected: false
+    shelterSelected: false,
+    mounted: false
+  }
+
+  componentDidMount(){
+    this.setState({mounted: true})
   }
 
 
@@ -16,10 +21,6 @@ export default class DogList extends Component {
     if(nextProps.selectedShelter !== null) {
       this.setState({shelterSelected: true})
     }
-  }
-
-  testFunc = () => {
-    console.log("Hey")
   }
 
 
