@@ -34,15 +34,20 @@ export class DeletionModal extends Component {
   }
 
   render() {
+    let fixedDate = ["Test", "date", "for", "null", "value"]
+    if (this.props.calendarDog.name !== "Tester") {
+      fixedDate = new Date(this.props.calendarDog.day)
+      fixedDate = fixedDate.toString().split(" ")
+    }
 
     return(
-      <Modal onClose={this.handleModalClose} open={this.state.modalOpen}>
+      <Modal onClose={this.handleModalClose} open={this.state.modalOpen} size='small'>
         <Modal.Header>Reservation Details</Modal.Header>
         <Modal.Content image>
           <Image wrapped circular size='medium' src={this.props.calendarDog.photo}/>
           <Modal.Description className="modal-description">
             <Header>{this.props.calendarDog.name}</Header>
-            <p> You have reserved {this.props.calendarDog.name} on {this.props.calendarDog.day}</p>
+            <p> You have reserved {this.props.calendarDog.name} on {fixedDate[0] + ', ' + fixedDate[1] + " " + fixedDate[2] + " " + fixedDate[3]}</p>
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
