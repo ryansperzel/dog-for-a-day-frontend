@@ -88,7 +88,7 @@ div.App {
     margin-left: 40%;
   }
 
-  /*Begin DogContainer custom CSS*/
+  /*Begin DogContainer*/
 
   .dog-container-grid {
     width: 100vw;
@@ -120,7 +120,10 @@ div.App {
     text-align: center;
   }
 
-  /*End DogContainer Custom CSS*/
+  /*End DogContainer*/
+
+
+  /*Begin DogShow*/
 
   .modal-description {
     margin-left: 8%;
@@ -132,7 +135,14 @@ div.App {
     margin-top: 4%;
   }
 
-  /*Begin landing page custom CSS*/
+  .tier-list {
+    padding-left: 10%;
+  }
+
+
+  /*End DogShow*/
+
+  /*Begin landing page*/
 
   * {
   margin: 0;
@@ -193,10 +203,10 @@ body {
 
 
 
-/*End landing page custom CSS*/
+/*End landing page*/
 
 
-/*Begin BigCalendar component custom CSS*/
+/*Begin BigCalendar component*/
 
 .big-calendar {
 
@@ -210,9 +220,9 @@ body {
   float: right;
 }
 
-/*End BigCalendar component custom CSS*/
+/*End BigCalendar component*/
 
-/*Begin account page custom CSS*/
+/*Begin account page*/
 
 .account-bg {
   background-color: #fcfcfc;
@@ -280,4 +290,4 @@ body {
 
 
 
-/*End account page custom CSS*/
+/*End account page*/

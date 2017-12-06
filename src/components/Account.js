@@ -39,8 +39,13 @@ export class Account extends Component {
 
   render() {
 
-    let totalDonatedArr = this.props.currentUser.appointments.map(app => app.cost)
-    let totalDonated = totalDonatedArr.reduce(this.getSum, 0)
+
+    let totalDonatedArr = []
+    let totalDonated = 0
+    if (this.props.currentUser.appointments) {
+      totalDonatedArr = this.props.currentUser.appointments.map(app => app.cost)
+      totalDonated = totalDonatedArr.reduce(this.getSum, 0)    
+    }
 
     return (
       <div>
