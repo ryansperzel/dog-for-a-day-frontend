@@ -4,6 +4,7 @@ import DogCard from './DogCard'
 import { Item, Dimmer, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import Logo from '../images/dogicon4.png'
+import Derp from '../images/derp.png'
 var cuid = require('cuid');
 
 export default class DogList extends Component {
@@ -52,7 +53,12 @@ export default class DogList extends Component {
       })
       return(
         <div>
-        {filteredDogs.length > 0 ? <Item.Group divided>{mappedDogs}</Item.Group> : <div className="sorry-message"><h1>Sorry, there are no pups available in that shelter! Please check back again later!</h1></div>}
+        {filteredDogs.length > 0 ? <Item.Group divided>{mappedDogs}</Item.Group> :
+        <div className="sorry-message">
+          <h1>Sorry, there are no pups available in that shelter! Please check back again later!</h1>
+          <br/><br/>
+          <img src={Derp} alt='' />
+        </div>}
 
         </div>
         )

@@ -29,11 +29,13 @@ export default class NavBar extends Component {
         </Menu.Item>
 
         <Menu.Item
-          name='testimonials'
-          active={activeItem === 'testimonials'}
+          name='my reservations'
+          as={Link}
+          to='/account'
+          active={activeItem === 'my reservations'}
           onClick={this.handleItemClick}
         >
-          Testimonials
+          My Reservations
         </Menu.Item>
 
         <Menu.Item
