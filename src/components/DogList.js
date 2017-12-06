@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router'
 import DogCard from './DogCard'
 import { Item, Dimmer, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import Logo from '../images/dogicon4.png'
 var cuid = require('cuid');
 
 export default class DogList extends Component {
@@ -51,15 +52,18 @@ export default class DogList extends Component {
       })
       return(
         <div>
-        {filteredDogs.length > 0 ? <Item.Group divided>{mappedDogs}</Item.Group> : <h1>Sorry, there are no pups available in that shelter! Please check back again later!</h1>}
+        {filteredDogs.length > 0 ? <Item.Group divided>{mappedDogs}</Item.Group> : <div className="sorry-message"><h1>Sorry, there are no pups available in that shelter! Please check back again later!</h1></div>}
 
         </div>
         )
     } else {
       let mappedDogs = null
       return(
-        <div>
-          {mappedDogs}
+        <div className="dog-list-null">
+          <img src={Logo} alt='' />
+          <br/>
+          <br/>
+          <h1>Please select a shelter to get started!</h1>
         </div>
         )
     }

@@ -88,6 +88,8 @@ div.App {
     margin-left: 40%;
   }
 
+  /*Begin DogContainer custom CSS*/
+
   .dog-container-grid {
     width: 100vw;
     height: 100vh;
@@ -103,11 +105,22 @@ div.App {
   .on-right {
     margin-top: 14%;
     grid-area: 1 / 2 / span 1 / span 1;
+
   }
 
-  .test-bg {
-    background-image: url('https://images7.alphacoders.com/379/thumb-1920-379691.jpg');
+  .dog-list-null {
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    padding-top: 45%;
   }
+
+  .sorry-message {
+    padding-top: 45%;
+    text-align: center;
+  }
+
+  /*End DogContainer Custom CSS*/
 
   .modal-description {
     margin-left: 8%;
