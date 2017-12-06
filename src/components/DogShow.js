@@ -35,6 +35,15 @@ export class DogShow extends Component {
 
   handleAppointmentSubmit = (event) => {
     event.preventDefault()
+    let cost = 0
+    if (this.props.selectedDog.size === "S") {
+      cost = 10
+    } else if (this.props.selectedDog.size === "M") {
+      cost = 15
+    } else {
+      cost = 20
+    }
+    console.log(this.props.selectedDog.size)
     console.log(this.state.date.toISOString())
     fetch('http://localhost:3000/api/v1/appointments', {
       headers:{
@@ -47,7 +56,8 @@ export class DogShow extends Component {
         user_id: 1,
         day: this.state.date.toISOString(),
         name: this.props.selectedDog.name,
-        photo: this.props.selectedDog.photo
+        photo: this.props.selectedDog.photo,
+        cost: cost
       })
     })
     .then(res => res.json())

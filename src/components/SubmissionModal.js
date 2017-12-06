@@ -15,6 +15,15 @@ export default class SubmissionModal extends Component {
 
   render() {
 
+    let cost = 0
+    if (this.props.selectedDog.size === "S") {
+      cost = 10
+    } else if (this.props.selectedDog.size === "M") {
+      cost = 15
+    } else {
+      cost = 20
+    }
+
     return(
       <Modal trigger={<Button onClick={this.handleModalOpen}>Submit Reservation</Button>} onClose={this.handleModalClose} open={this.state.modalOpen}>
         <Modal.Header>Confirm Reservation Details</Modal.Header>
@@ -24,7 +33,7 @@ export default class SubmissionModal extends Component {
             <Header>Reservation Maker</Header>
             <p>Reserving {this.props.selectedDog.name}</p>
             <p>for {this.props.date.toString()}</p>
-            <p>{this.props.selectedDog.name}'s <Popup trigger={<a><b>doggie bag</b></a>} content="A doggie bag includes enough food and water for the day (with pet bowls), toys, and specific info about what your reserved dog likes!" on='hover'/> will </p>
+            <p>{this.props.selectedDog.name}'s <Popup trigger={<a><b>doggie bag</b></a>} content="A doggie bag includes enough food and water for the day (with pet bowls), toys, and specific info about what your reserved dog likes!" on='hover'/> will cost ${cost} and will go straight to the shelter's operating funds</p>
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>

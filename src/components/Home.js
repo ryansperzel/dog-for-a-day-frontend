@@ -102,7 +102,7 @@ export class Home extends Component {
                   </Menu.Item>
                 </Menu>
                   <h1>Dog for a Day</h1>
-                  <p>Lorem ipsum some other shit.</p>
+                  <p>Meet your new best friend.</p>
                   <br/>
                   <br/>
                   <br/>
@@ -125,9 +125,9 @@ export class Home extends Component {
                   <br/>
                   <br/>
                   <br/>
-                  <a href="javascript:;">
+                  {/*}<a href="javascript:;">
                     <img src={Terrance} className="terrance" onClick={this.hitTerrance} alt="" height="75" width="75" />
-                  </a>
+                  </a>*/}
                 </div>
               </div>
                  :
