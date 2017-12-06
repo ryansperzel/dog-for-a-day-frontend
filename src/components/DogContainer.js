@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import DogList from './DogList'
 import DogShow from './DogShow'
 import GoogleApiWrapper from './MapContainer'
+import NavBar from './NavBar'
 // import { bindActionCreators } from 'redux'
 
 export class DogContainer extends Component {
@@ -25,14 +26,17 @@ export class DogContainer extends Component {
 
   render() {
     return (
-        <div className="dog-container-grid">
-          <div className="on-right">
-            <DogList className="content" selectedShelter={this.props.selectedShelter} setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
-          </div>
-          <div className="on-left">
-            {this.props.latitude !== null && this.props.shelters.length !== 0 ? <GoogleApiWrapper setSelectedShelter={this.props.setSelectedShelter} latitude={this.props.latitude} shelters={this.props.shelters} longitude={this.props.longitude}/>
-            :
-            null}
+        <div>
+          <NavBar/>
+          <div className="dog-container-grid">
+            <div className="on-right">
+              <DogList className="content" selectedShelter={this.props.selectedShelter} setSelectedDog={this.props.setSelectedDog} dogs={this.props.dogs}/>
+            </div>
+            <div className="on-left">
+              {this.props.latitude !== null && this.props.shelters.length !== 0 ? <GoogleApiWrapper setSelectedShelter={this.props.setSelectedShelter} latitude={this.props.latitude} shelters={this.props.shelters} longitude={this.props.longitude}/>
+              :
+              null}
+            </div>
           </div>
         </div>
 

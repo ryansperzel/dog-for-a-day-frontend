@@ -5,6 +5,7 @@ import { addAppointment, setDemoUser } from '../actions/users'
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css'
 import SubmissionModal from './SubmissionModal'
+import NavBar from './NavBar'
 
 
 let mappedDisabledDates = []
@@ -73,9 +74,10 @@ export class DogShow extends Component {
 
     return(
       <div>
+        <NavBar/>
         {this.props.selectedDog === null ? <p></p>
         :
-        <div>
+        <div className="dog-show-container-div">
           <h1>{this.props.selectedDog.name}</h1>
           <InfiniteCalendar onSelect={this.handleDateSelect} disabledDates={this.props.disabledDates} width={300} height={450} selected={today} minDate={today}/>
           <SubmissionModal selectedDog={this.props.selectedDog} date={this.state.date} handleAppointmentSubmit={this.handleAppointmentSubmit} />

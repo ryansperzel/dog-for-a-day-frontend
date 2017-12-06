@@ -33,10 +33,16 @@ export class Account extends Component {
 
     return (
       <div className="account-bg">
-        <h1>Hello, {this.props.currentUser.first_name}</h1>
-        <h3>Your Past Puppy Pals</h3>
-        <UserCalendar setCalendarDog={this.setCalendarDog}/>
-        <DeletionModal clearCalendarDog={this.clearCalendarDog} calendarDog={this.state.calendarDog}/>
+        <div className="account-header">
+          <h1>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
+        </div>
+        <div className="picture-div">
+          <p>The picture should go here</p>
+        </div>
+        <div>
+          <UserCalendar setCalendarDog={this.setCalendarDog}/>
+          <DeletionModal clearCalendarDog={this.clearCalendarDog} calendarDog={this.state.calendarDog}/>
+        </div>
       </div>
     )
   }

@@ -1,7 +1,12 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100px;
   font-family: sans-serif;
+}
+
+div.App {
+  height: 200px;
 }
 
 .textWithBlurredBg{
@@ -96,6 +101,7 @@ body {
   }
 
   .on-right {
+    margin-top: 14%;
     grid-area: 1 / 2 / span 1 / span 1;
   }
 
@@ -107,6 +113,10 @@ body {
     margin-left: 8%;
     margin-top: 10%;
     text-align: center;
+  }
+
+  .dog-show-container-div {
+    margin-top: 4%;
   }
 
   /*Begin landing page custom CSS*/
@@ -182,7 +192,8 @@ body {
   float: right;
   width: 40%;
   height: 500px;
-  margin-right: 10%;
+  margin-right: 15%;
+  margin-top: 20%;
 }
 
 /*End BigCalendar component custom CSS*/
@@ -190,10 +201,58 @@ body {
 /*Begin account page custom CSS*/
 
 .account-bg {
-  background-color: #f7f7f7;
+  background-color: #fcfcfc;
+  background-size: cover;
   height: 100vh;
   width: 100vw;
 }
+
+.account-header {
+  height: 15%;
+  width: 80%;
+  background-color: white;
+  position: absolute;
+  padding-top: 1%;
+  padding-left: 1%;
+  border-radius: 25px;
+  top: 5%;
+  left: 10%;
+  float: center;
+}
+
+.rbc-day-bg {
+  background-color: white;
+}
+
+.rbc-btn-group {
+  background-color: white;
+  z-index: 5;
+}
+
+.rbc-toolbar-label {
+  z-index: 5;
+}
+
+.picture-div {
+  height: 60%;
+  width: 80%;
+  background-color: white;
+  position: absolute;
+  padding-top: 1%;
+  padding-left: 1%;
+  border-radius: 25px;
+  top: 25%;
+  left: 10%;
+}
+/*.calendar-div {
+  background-color: white;
+  padding-top: 1%;
+  padding-left: 1%;
+  top: 50%;
+  left: 10%;
+}*/
+
+
 
 
 /*End account page custom CSS*/
