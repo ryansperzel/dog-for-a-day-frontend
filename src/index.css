@@ -96,7 +96,7 @@ div.App {
     height: 100vh;
     display:grid;
     grid-column-gap: 2%;
-    grid-template-columns: 7fr 3fr;
+    grid-template-columns: 7fr 2fr;
   }
 
   .on-left {
@@ -114,6 +114,10 @@ div.App {
     height: 100%;
     text-align: center;
     padding-top: 45%;
+  }
+
+  .dog-list-card-name {
+    padding-top: 1em;
   }
 
   .sorry-message {
@@ -173,6 +177,7 @@ div.App {
 
   .dog-show-img {
     margin-left: 10.5em;
+    margin-right: 10.5em;
   }
 
   /*End DogShow*/

@@ -115,7 +115,7 @@ export class Home extends Component {
                   <br/>
                   <Form className="search-form" onSubmit={this.handleSubmit}>
                       <Form.Group inline>
-                        <Form.Field control={Input} width={4} fluid icon='marker' iconPosition='left' placeholder='City, State' onChange={this.handleChange} value={this.state.location}/>
+                        <Form.Field control={Input} width={4} fluid icon='marker' iconPosition='left' placeholder='City, State / ZIP' onChange={this.handleChange} value={this.state.location}/>
                         <Form.Button width={1} fluid icon="paw" type="submit"></Form.Button>
                       </Form.Group>
                   </Form>
