@@ -41,7 +41,7 @@ export default class DogList extends Component {
           <Item as={Link} to={dogURL} key={idx}>
           <Item.Image size='small' src={dog.media.photos === undefined ? null : dog.media.photos.photo[3].$t} />
           <Item.Content>
-          <Item.Header as='a' onClick={this.testFunc}>{dog.name.$t}</Item.Header>
+          <Item.Header as='a' className="dog-list-card-name" onClick={this.testFunc}>{dog.name.$t}</Item.Header>
           <Item.Meta>
           <span>{dog.sex.$t}</span>
           </Item.Meta>

@@ -109,6 +109,10 @@ div.App {
 
   }
 
+  .dog-list-card-name {
+    padding-top: 1em;
+  }
+
   .dog-list-null {
     background-size: cover;
     height: 100%;
