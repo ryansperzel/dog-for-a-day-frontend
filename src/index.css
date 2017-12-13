@@ -95,8 +95,8 @@ div.App {
     width: 100vw;
     height: 100vh;
     display:grid;
-    grid-column-gap: 2%;
-    grid-template-columns: 7fr 3fr;
+    grid-column-gap: 0%;
+    grid-template-columns: 8fr 2fr;
   }
 
   .on-left {
@@ -104,6 +104,7 @@ div.App {
   }
 
   .on-right {
+    padding-right: 1em;
     margin-top: 14%;
     grid-area: 1 / 2 / span 1 / span 1;
 
@@ -157,8 +158,10 @@ div.App {
 
   .infinite-calendar-div {
     grid-area: 3 / 4 / span 1 / span 1;
-    padding-left: 3em;
+    padding-left: 2em;
     padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-right: 2em;
     background-color: white;
     border-radius: 5%;
   }
@@ -176,7 +179,7 @@ div.App {
   }
 
   .dog-show-img {
-    margin-left: 10.5em;
+    margin-left: 3.5em;
   }
 
   /*End DogShow*/
@@ -322,7 +325,7 @@ body {
 }
 
 .deletion-modal-description {
-  margin-top: 20%;
+  margin-top: 3em;
   text-align: center;
 }
 

@@ -46,7 +46,7 @@ export class MapContainer extends Component {
       })
 
       const containerStyle= {
-        width: '77%',
+        width: '76%',
         height: '100%',
         position: 'fixed'
       }
