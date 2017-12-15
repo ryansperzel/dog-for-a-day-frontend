@@ -1,4 +1,4 @@
-# Dog For A Day ![](./src/images/dogicon4.png =50x50)
+# Dog For A Day <img src="./src/images/dogicon4.png" width="50px" height="50px">
 
 Dog For A Day allows users to search for shelter dogs anywhere in the United States, view details on each dog, and make a reservation with that dog on a particular day.
 
