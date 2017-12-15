@@ -1,4 +1,4 @@
-# Dog For A Day [](./src/images/dogicon3.png)
+# Dog For A Day ![](./src/images/dogicon3.png)
 
 Dog For A Day allows users to search for shelter dogs anywhere in the United States, view details on each dog, and make a reservation with that dog on a particular day.
 
