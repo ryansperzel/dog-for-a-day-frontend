@@ -95,12 +95,12 @@ export class Home extends Component {
 
 
                 <div className="content-custom">
-                <Menu inverted pointing secondary size='large'>
+                {/*<Menu inverted pointing secondary size='large'>
                   <Menu.Item position='right'>
                     <Button as='a' onClick={this.handleLogin} inverted>Log in</Button>
                     <Button as='a' onClick={this.handleSignup} inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>
                   </Menu.Item>
-                </Menu>
+                </Menu>*/}
                   <h1>Dog for a Day</h1>
                   <p>Meet your new best friend.</p>
                   <br/>

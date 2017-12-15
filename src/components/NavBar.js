@@ -38,14 +38,14 @@ export default class NavBar extends Component {
           My Reservations
         </Menu.Item>
 
-        <Menu.Item
+        {/*<Menu.Item
           name='Login'
           active={activeItem === 'sign-in'}
           onClick={this.handleItemClick}
           position='right'
         >
           Login
-        </Menu.Item>
+        </Menu.Item>*/}
       </Menu>
     )
   }
