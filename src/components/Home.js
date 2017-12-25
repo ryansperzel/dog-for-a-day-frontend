@@ -6,6 +6,7 @@ import { setLocation, setLatLong , fetchDogs} from '../actions/dogs'
 import { fetchShelters } from '../actions/shelters'
 import { setDemoUser } from '../actions/users'
 import { petKey } from '../keys/keys.js'
+import { geocoder } from '../keys/keys'
 import Login from './Login'
 import Signup from './Signup'
 import Terrance from '../images/terrance.png'
@@ -58,10 +59,10 @@ export class Home extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${geocoder}`)
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${event.target[0].value}&key=${geocoder}`)
       .then(response => response.json())
       .then(json => {
-        
+
       })
     this.setState({loading: true})
     this.props.setLocation(event.target[0].value)
