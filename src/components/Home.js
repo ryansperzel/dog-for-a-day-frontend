@@ -58,6 +58,11 @@ export class Home extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${geocoder}`)
+      .then(response => response.json())
+      .then(json => {
+        
+      })
     this.setState({loading: true})
     this.props.setLocation(event.target[0].value)
     this.props.setLatLong(event.target[0].value)
