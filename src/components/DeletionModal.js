@@ -41,6 +41,7 @@ export class DeletionModal extends Component {
     }
 
     return(
+
       <Modal onClose={this.handleModalClose} open={this.state.modalOpen} size='small'>
         <Modal.Header>Reservation Details</Modal.Header>
         <Modal.Content image>
@@ -51,9 +52,11 @@ export class DeletionModal extends Component {
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
+          {fixedDate < new Date() ? null :
           <Button color='red' onClick={this.handleDelete} inverted>
             <Icon name='remove' /> Delete Reservation
           </Button>
+        }
         </Modal.Actions>
       </Modal>
     )
