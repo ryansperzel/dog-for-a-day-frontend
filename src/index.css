@@ -105,6 +105,8 @@ div.App {
 
   .on-right {
     padding-right: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
     margin-top: 14%;
     grid-area: 1 / 2 / span 1 / span 1;
 
